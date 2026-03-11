@@ -49,5 +49,14 @@ namespace Crud
 				Console.WriteLine($"{p.Id, -5} {p.Nome, -20} {p.Preco, 10:C}");
 			}
 		}
+		public Produto? BuscarPorId(int id)
+		{
+			var produto = Ler().Find(p => p.Id == id);
+			if(produto == null)
+			{
+				Console.WriteLine($"Produto com ID {id} não encontrado.");
+				return null;
+			}
+		}
 	}
 	}
