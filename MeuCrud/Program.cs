@@ -34,6 +34,20 @@ namespace Crud
 
 			lista.Add(new Produto { Id = novoId, Nome = nome, Preco = preco });
 			Salvar(lista);
+
+			Console.WriteLine($"Produto '{nome}' Adicionado com sucesso!");
+		}
+
+		public void ListarTodos()
+		{
+			var lista = Ler();
+			if(lista.Count == 0) {Console.WriteLine("Nenhum produto cadastrado"); return;}
+			Console.WriteLine("\n Produtos Cadastrados:");
+			Console.WriteLine($"{"ID", -5} {"Nome", -20} {"Preco", 10}");
+		  foreach(var p in lista)
+			{
+				Console.WriteLine($"{p.Id, -5} {p.Nome, -20} {p.Preco, 10:C}");
+			}
 		}
 	}
 	}
